@@ -1,4 +1,4 @@
-#include "monty.h"
+#include "lists.h"
 /**
  * push_stack -push (add) node to list.
  *Description: Function that push a new node at the beginning of stack_t stack
