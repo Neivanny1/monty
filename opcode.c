@@ -29,6 +29,6 @@ void (*get_code(char *token, unsigned int line)) (stack_t **, unsigned int)
 			return (operation[i].f);
 		}
 	}
-	invalidInstruction_error(token, line);
+	handles_invalidInstruction_error(token, line);
 	return (NULL);
 }

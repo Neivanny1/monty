@@ -1,5 +1,5 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,22 +37,19 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* error_handling functions */
-void invalidInstruction_error(char *invInstruction, unsigned int line);
-void malloc_error(void);
+void handles_invalidInstruction_error(char *invInstruction, unsigned int line);
+void handles_malloc_error(void);
 
-/* error handler 2 */
-void pint_error(unsigned int line);
-void pop_error(unsigned int line);
-void swap_error(unsigned int line);
-void add_error(unsigned int line);
-void sub_error(unsigned int line);
-
-/* error_handler3 */
-void div_error(unsigned int line);
-void div_error2(unsigned int line);
-void mul_error(unsigned int line);
-void mod_error(unsigned int line);
+void handles_pint_error(unsigned int line);
+void handles_not_int_errors(unsigned int line);
+void handles_pop_error(unsigned int line);
+void handles_swap_error(unsigned int line);
+void handles_add_error(unsigned int line);
+void handles_sub_error(unsigned int line);
+void handles_div_error(unsigned int line);
+void handles_div_errors(unsigned int line);
+void handles_mul_error(unsigned int line);
+void handles_mod_error(unsigned int line);
 
 void windows_explorer(char **argv);
 int this_is_number(char *token);
@@ -64,14 +61,11 @@ void free_stack(stack_t *top);
 void pint_stack(stack_t **top, unsigned int line_number);
 void pop_stack(stack_t **top, unsigned int line_number);
 
-/* stack operations */
 void _swap(stack_t **top, unsigned int line);
 void _add(stack_t **top, unsigned int line);
 void _sub(stack_t **top, unsigned int line_number);
 void _div(stack_t **top, unsigned int line_number);
 void _mul(stack_t **top, unsigned int line);
-
-/* stack 3 */
 void _mod(stack_t **top, unsigned int line_number);
 void _nop(stack_t **top, unsigned int line);
-#endif /* _MONTY_H_ */
+#endif

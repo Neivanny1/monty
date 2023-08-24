@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  *_mod - module of the second top element of the stack by the top element
  * @top: element at the top of the stack (head)
@@ -10,10 +11,10 @@ void _mod(stack_t **top, unsigned int line_number)
 	stack_t *tmp;
 
 	if (*top == NULL || (*top)->next ==  NULL)
-		mod_error(line_number);
+		handles_mod_error(line_number);
 
 	if ((*top)->n == 0)
-		div_error2(line_number);
+		handles_div_errors(line_number);
 
 	tmp = (*top)->next;
 	tmp->n = (tmp->n) % (*top)->n;

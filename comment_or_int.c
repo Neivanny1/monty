@@ -5,11 +5,11 @@
  * @line_counter: line
  * Return: -1 if sring is not # or 1 if yes
  */
-int this_is_comment(char *token, int line_counter)
+int this_is_comment(char *token, int _counter)
 {
         if (token == NULL || token[0] == '#')
         {
-        line_counter++;
+        _counter++;
         return (1);
         }
         return (-1);
