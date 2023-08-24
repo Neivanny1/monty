@@ -1,13 +1,12 @@
 #include "monty.h"
 /**
- * get_op_code - contain the function that will perform the operation
+ * get_code - contain the function that will perform the operation
  * @token: operation code
  * @line: line readed
  * Return: void
  */
-void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int)
+void (*get_code(char *token, unsigned int line)) (stack_t **, unsigned int)
 {
-/*arreglo de estructuras*/
 	int i;
 	instruction_t operation[] = {
 		{"push", push_stack},
@@ -21,10 +20,6 @@ void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
-		{"rotl", rotl_stack},
-		{"rotr", rotr_stack},
-		{"pchar", _pchar},
-		{"pstr", pstr_stack},
 		{NULL, NULL}
 	};
 	for (i = 0; operation[i].opcode != NULL; i++)

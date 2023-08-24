@@ -2,16 +2,15 @@
 #include <stdio.h>
 int number;
 /**
- * open_and_read -main entry.
- *Description:Function that open, read and execute.
+ * windows_explorer -main entry - Function that open, read and execute.
  * @argv: arguments received by parameter
  * Return: void
  **/
 void windows_explorer(char **argv)
 {
-	void (*p_func)(stack_t **, unsigned int);
+	void (*peril)(stack_t **, unsigned int);
 	FILE *fp;
-	char buf[1024], *token = NULL, command[1024];
+	char buffer[1024], *token = NULL, command[1024];
 	unsigned int line_counter = 1;
 	stack_t *top = NULL;
 
@@ -23,10 +22,10 @@ void windows_explorer(char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
-	while (fgets(buf, sizeof(buf), fp) != NULL)
+	while (fgets(buffer, sizeof(buffer), fp) != NULL)
 	{
-		buf[strcspn(buf, "\n")] = '\0';
-		token = strtok(buf, "\n\t\r ");
+		buffer[strcspn(buffer, "\n")] = '\0';
+		token = strtok(buffer, "\n\t\r ");
 		if (token == NULL)
 			continue;
 		strcpy(command, token);
@@ -41,13 +40,13 @@ void windows_explorer(char **argv)
 				exit(EXIT_FAILURE);
 			}
 			number = atoi(token);
-			p_func = get_op_code(command, line_counter);
-			p_func(&top, line_counter);
+			peril = get_code(command, line_counter);
+			peril(&top, line_counter);
 		}
 		else
 		{
-			p_func = get_op_code(token, line_counter);
-			p_func(&top, line_counter);
+			peril = get_code(token, line_counter);
+			peril(&top, line_counter);
 		}
 		line_counter++;
 	}

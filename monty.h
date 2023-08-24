@@ -53,20 +53,11 @@ void div_error(unsigned int line);
 void div_error2(unsigned int line);
 void mul_error(unsigned int line);
 void mod_error(unsigned int line);
-/*error handler4*/
-void pchar_error(unsigned int line);
-void pchar_error2(unsigned int line);
 
-/* executer functions*/
 void windows_explorer(char **argv);
 int this_is_number(char *token);
 int this_is_comment(char *token, int line_counter);
-
-/*opcodes */
-void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int);
-
-
-/* Stack */
+void (*get_code(char *token, unsigned int line)) (stack_t **, unsigned int);
 void push_stack(stack_t **top, unsigned int line_number);
 void pall_stack(stack_t **top, unsigned int line_number);
 void free_stack(stack_t *top);
@@ -82,12 +73,5 @@ void _mul(stack_t **top, unsigned int line);
 
 /* stack 3 */
 void _mod(stack_t **top, unsigned int line_number);
-void rotl_stack(stack_t **top, unsigned int line_number);
-void rotr_stack(stack_t **top, unsigned int line_number);
 void _nop(stack_t **top, unsigned int line);
-void _pchar(stack_t **top, unsigned int line_number);
-
-/*stack4 */
-void pstr_stack(stack_t **top, unsigned int line_number);
-
 #endif /* _MONTY_H_ */
