@@ -30,13 +30,16 @@ void windows_explorer(char **argv)
 		if (token == NULL)
 			continue;
 		strcpy(command, token);
-		if (is_comment(token, line_counter) == 1)
+		if (this_is_comment(token, line_counter) == 1)
 			continue;
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\r ");
-			if (token == NULL || is_number(token) == -1)
-				not_int_err(line_counter);
+			if (token == NULL || this_is_number(token) == -1)
+			{
+				fprintf(stderr, "L%u: usage: push integer\n", line_counter);
+				exit(EXIT_FAILURE);
+			}
 			number = atoi(token);
 			p_func = get_op_code(command, line_counter);
 			p_func(&top, line_counter);
@@ -50,38 +53,4 @@ void windows_explorer(char **argv)
 	}
 	fclose(fp);
 	free_stack(top);
-}
-/**
- * is_number - check if string received is int or not
- * @token: string to check
- * Return: -1 if sring is not int or 1 if yes
- */
-int is_number(char *token)
-{
-	int i;
-
-	if (token == NULL)
-		return (-1);
-
-	for (i = 0; token[i] != '\0'; i++)
-	{
-		if (token[i] != '-' && isdigit(token[i]) == 0)
-			return (-1);
-	}
-	return (1);
-}
-/**
- * is_comment - check if string received is # or not
- * @token: string to check
- * @line_counter: line
- * Return: -1 if sring is not # or 1 if yes
- */
-int is_comment(char *token, int line_counter)
-{
-	if (token == NULL || token[0] == '#')
-	{
-	line_counter++;
-	return (1);
-	}
-	return (-1);
 }

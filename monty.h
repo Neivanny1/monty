@@ -37,11 +37,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* error_handler functions */
-void error_arguments(void);
-void open_error(char **);
+/* error_handling functions */
 void invalidInstruction_error(char *invInstruction, unsigned int line);
-void not_int_err(unsigned int line);
 void malloc_error(void);
 
 /* error handler 2 */
@@ -62,8 +59,8 @@ void pchar_error2(unsigned int line);
 
 /* executer functions*/
 void windows_explorer(char **argv);
-int is_number(char *token);
-int is_comment(char *token, int line_counter);
+int this_is_number(char *token);
+int this_is_comment(char *token, int line_counter);
 
 /*opcodes */
 void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int);
