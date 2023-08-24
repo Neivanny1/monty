@@ -61,7 +61,7 @@ void pchar_error(unsigned int line);
 void pchar_error2(unsigned int line);
 
 /* executer functions*/
-void open_and_read(char **argv);
+void windows_explorer(char **argv);
 int is_number(char *token);
 int is_comment(char *token, int line_counter);
 

@@ -9,7 +9,10 @@
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		error_arguments();
-	open_and_read(argv);
+	{
+		fprintf(stderr, "Usage: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	windows_explorer(argv);
 	return (0);
 }
