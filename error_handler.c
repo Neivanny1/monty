@@ -1,7 +1,6 @@
 #include"monty.h"
 /**
- * invalidInstruction_error -Main entry
- *Description: print message if le to open the filehas an invalid instruction
+ * invalidInstruction_error - Prints message if le to open the filehas an invalid instruction.
  * @invInstruction: instruction
  * @line: line
  * Return: void
