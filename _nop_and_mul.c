@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 /**
  *_mod - module of the second top element of the stack by the top element
  * @top: element at the top of the stack (head)
