@@ -31,7 +31,6 @@ void malloc_error(void)
 	fprintf(stderr, "Error: malloc failed\n");
 	exit(EXIT_FAILURE);
 }
-#include "monty.h"
 /**
  * div_error - Print error if the stack contains less than two elements
  * @line: line
